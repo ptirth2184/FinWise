@@ -1,4 +1,4 @@
-# 💸 FinWise - 💸 "Track. Predict. Save. Smarter."
+# 💸 FinWise - "Track. Predict. Save. Smarter."
 
 
 **FinWise** is an intelligent personal finance tracker built with **Python** and **Streamlit**. It empowers users to upload their bank statements, automatically categorize transactions, visualize spending, forecast future expenses, and track their budget goals — all in a single, smart dashboard.
