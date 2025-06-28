@@ -136,7 +136,7 @@ from visuals.charts import category_pie_chart, monthly_trend_line, top_expense_b
 st.set_page_config(page_title="FinWise - Personal Finance Assistant")
 st.title("💸 FinWise - Personal Finance Dashboard")
 
-# Step 1: File Upload
+# File Upload
 st.header("Step 1: Upload Your Bank Statement")
 file = st.file_uploader("Upload CSV or Excel File", type=['csv', 'xlsx'])
 
@@ -150,7 +150,7 @@ if file:
     st.subheader("Preview:")
     st.dataframe(df.head(), use_container_width=True)
 
-    # Step 2: Basic Cleaning
+    # Basic Cleaning
     st.header("Step 2: Clean & Prepare Data")
     df.columns = df.columns.str.strip().str.capitalize()
 
@@ -160,7 +160,7 @@ if file:
 
         st.success("Date parsing complete. Data is ready!")
 
-        # Step 3: Categorization
+        # Categorization
         st.header("Step 3: Categorize Transactions")
         method = st.selectbox("Select Categorization Method", ["Hybrid", "ML", "Rule-Based"])
 
@@ -173,7 +173,7 @@ if file:
 
         st.dataframe(df.head(), use_container_width=True)
 
-        # Step 4: Visualizations
+        # Visualizations
         st.header("Step 4: Visual Insights")
         expense_df = df[df["Amount"] < 0].copy()
         expense_df["Amount"] = expense_df["Amount"].abs()
@@ -187,7 +187,7 @@ if file:
         with tab3:
             st.plotly_chart(top_expense_bar(expense_df), use_container_width=True)
 
-        # Step 5: Forecasting
+        # Forecasting
         st.header("Step 5: Forecast Future Spending")
         if st.button("Generate Forecast for Next 30 Days"):
             forecast_df, model = forecast_expenses(df)
@@ -213,7 +213,7 @@ if file:
             st.markdown(f"**{tip}**")
             st.info(action)
 
-            # Step 6: Budget Goal
+            # Budget Goal
             st.header("Step 6: Budget Goal & Savings Tracker")
             budget = st.number_input("Set your Monthly Budget (₹)", min_value=0, value=20000, step=1000)
 
@@ -233,6 +233,50 @@ if file:
             df_this_month["Amount"] = df_this_month["Amount"].abs()
             top_cats = df_this_month.groupby("Category")["Amount"].sum().sort_values(ascending=False).head(3)
 
+        # Export pdf
+        st.header('Export your Report (optional)')
+
+        if st.checkbox('I want to downlaod my forecast and budget summary'):
+            import io
+
+            if 'forecast_df' in st.session_state:
+                forecast_df = st.session_state.forecast_df.copy()
+
+                csv_buffer = io.StringIO()
+                forecast_df.to_csv(csv_buffer, index=False)
+                st.download_button(
+                    label='Download Forecast Report CSV',
+                    data = csv_buffer.getvalue(),
+                    file_name='forecast_report.csv',
+                    mime='text/csv'
+                )
+                
+                # Budget Summary Export
+                import io
+
+                this_month = pd.Timestamp.now().strftime('%Y-%m')
+                forecasted_total = forecast_df.tail(30)["yhat"].sum()
+                remaining_budget = budget - forecasted_total
+
+                # Generate summary as plain text
+                insight_text = f"""
+                FinWise Budget Summary - {this_month}
+
+                Monthly Budget Set: ₹{int(budget)}
+                Forecasted Spending: ₹{int(forecasted_total)}
+                Expected Balance: ₹{int(remaining_budget)}
+
+                Suggestion:
+                {'✅ Stay within your budget and save money!' if remaining_budget > 0 else '⚠️ You are likely to overspend. Consider reducing expenses.'}
+                """
+
+                # Download button
+                st.download_button(
+                    label="Download Budget Summary (TXT)",
+                    data=insight_text,
+                    file_name="budget_summary.txt",
+                    mime="text/plain"
+                )
 
         
 
