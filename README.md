@@ -45,8 +45,8 @@ FinWise/
 ├── visuals/
 │   └── charts.py              # All visualizations
 ├── sample_data/
-│   ├── training_data.csv
-│   └── testing_data.csv
+│   ├── data.csv
+|   |___sample_statement.csv
 ├── requirements.txt
 └── README.md
 ```
