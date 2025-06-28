@@ -1,5 +1,32 @@
 Date,Description,Amount,Type
-01-06-2024,Zomato Order,-450,Debit
-02-06-2024,Salary,50000,Credit
-03-06-2024,Netflix,-199,Debit
-04-06-2024,Grocery Store,-1500,Debit
+01-06-2024,Salary,65000,Credit
+02-06-2024,Zomato,-450,Debit
+03-06-2024,Grocery Store,-1800,Debit
+04-06-2024,UPI Transfer,-1000,Debit
+05-06-2024,Netflix Subscription,-199,Debit
+06-06-2024,Medical Bill,-700,Debit
+07-06-2024,Interest Earned,300,Debit
+08-06-2024,Petrol Pump,-900,Debit
+09-06-2024,Swiggy,-350,Debit
+10-06-2024,Electricity Bill,-1500,Debit
+11-06-2024,UPI Transfer,1000,Credit
+12-06-2024,Rent Payment,-15000,Debit
+13-06-2024,Zomato,-600,Debit
+14-06-2024,Amazon Purchase,-2500,Debit
+15-06-2024,Interest Earned,200,Debit
+16-06-2024,Grocery Store,-2100,Debit
+17-06-2024,Medical Bill,-300,Debit
+18-06-2024,Dining Out,-850,Debit
+19-06-2024,Petrol Pump,-1000,Debit
+20-06-2024,Mobile Recharge,-299,Debit
+21-06-2024,UPI Transfer,-500,Debit
+22-06-2024,Insurance Premium,-2000,Debit
+23-06-2024,Interest Earned,250,Debit
+24-06-2024,Gym Membership,-4000,Debit
+25-06-2024,Swiggy,-450,Debit
+26-06-2024,Amazon Purchase,-1500,Debit
+27-06-2024,Grocery Store,-1700,Debit
+27-06-2024,UPI Transfer,500,Credit
+28-06-2024,Zomato,-450,Debit
+29-06-2024,Movie,-700,Debit
+30-06-2024,Bowling,-300,Debit
