@@ -41,6 +41,18 @@ st.header("📈 Visual Insights")
 expense_df = df[df['Amount']<0].copy()
 expense_df['Amount'] = expense_df['Amount'].abs() #making it positive for chart
 
+total_income = df[df['Type'] == 'Credit']['Amount'].sum()
+total_expense = df[df['Type'] == 'Debit']['Amount'].sum()
+total_expense = abs(total_expense)
+savings = total_income - total_expense
+
+st.subheader("💼 Financial Summary")
+col1, col2, col3 = st.columns(3)
+col1.metric("Income", f"₹{total_income:,.0f}")
+col2.metric("Expenses", f"₹{total_expense:,.0f}")
+col3.metric("Savings", f"₹{savings:,.0f}")
+
+
 tab1, tab2, tab3 = st.tabs(['Pie Chart', 'Trend Line', 'Top Expenses'])
 
 with tab1:
