@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd 
+from helpers.categorizer import rule_based_categorize, ml_categorize, hybrid_categorize
 
 st.title('FinWise: Smart Expense Categorizer & Budget Planner')
 
@@ -18,3 +19,14 @@ if uploaded_file:
 
 else:
     st.info('please upload a bank statement to continue')
+
+
+# Let user choose method
+method = st.selectbox("Categorization Method", ["Hybrid", "ML", "Rule-Based"])
+
+if method == "ML":
+    df["Category"] = df["Description"].apply(ml_categorize)
+elif method == "Rule-Based":
+    df["Category"] = df["Description"].apply(rule_based_categorize)
+else:
+    df["Category"] = df["Description"].apply(hybrid_categorize)
