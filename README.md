@@ -1,4 +1,5 @@
-# 💸 FinWise - Personal Finance Dashboard
+# 💸 FinWise - 💸 "Track. Predict. Save. Smarter."
+
 
 **FinWise** is an intelligent personal finance tracker built with **Python** and **Streamlit**. It empowers users to upload their bank statements, automatically categorize transactions, visualize spending, forecast future expenses, and track their budget goals — all in a single, smart dashboard.
 
@@ -16,7 +17,6 @@
 * 📊 Interactive visualizations:
 
   * Pie chart, line graph, bar chart
-  * Stacked bar, donut chart, trend analysis
 * 🔮 Expense forecasting using Facebook Prophet
 * 💡 Smart suggestions to control overspending
 * 💰 Budget goal tracker and top category alerts
