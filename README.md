@@ -100,8 +100,8 @@ This project is licensed under the MIT License.
 ## 👨‍💻 Created by
 
 **Tirth Patel**
-Student | Data & AI Enthusiast
-📧 Reach me: \[[your.email@example.com](mailto:your.email@example.com)]
+Student | Data & AI Enthusiast <br>
+📧 Reach me: \[[ptirth2184@gmail.com](mailto:your.email@example.com)]
 
 ---
 
