@@ -58,7 +58,7 @@ FinWise/
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/finwise.git
+git clone https://github.com/ptirth2184/finwise.git
 cd finwise
 ```
 
